@@ -31,3 +31,13 @@ I'm really happy with this tool as I used to setup the servers and a basic view 
 The project specs require the use of Apollo to interact with the GraphQL API we used before.
 
 I followed the tutorial in https://www.apollographql.com/docs/react/get-started in setting up Apollo client.
+
+## Rendering bare menu
+
+Now that we can get requests from our GraphQL, the next thing to do is to ensure that we can render the items included in the menu.
+
+As I am most familiar with React, I will get the React components working first.
+
+I will add styling, tests, and ensuring Typescript types are defined later on if there is enough time.
+
+Learning from the mistake from the previous exercise, I will use ChatGPT to help me in creating the React components to accomplish tasks faster. At this point, I already know how React works and there is nothing much to demonstrate by writing all the code from scratch.
