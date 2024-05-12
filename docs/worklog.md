@@ -41,3 +41,11 @@ As I am most familiar with React, I will get the React components working first.
 I will add styling, tests, and ensuring Typescript types are defined later on if there is enough time.
 
 Learning from the mistake from the previous exercise, I will use ChatGPT to help me in creating the React components to accomplish tasks faster. At this point, I already know how React works and there is nothing much to demonstrate by writing all the code from scratch.
+
+## Deployment
+
+*At this point, I am mentally exhausted as I am pre-occupied by other deliverables this weekend. I decided to pause the development for now and continue another day.*
+
+I finished a very rough and dirty rendering of elements from the API. The code needs massive refactoring to conform to Typescript conventions and frontend styling.
+
+Almost halway into the time, I decided to setup the deployment first as it looks straightforward to do. I will use the guide in https://vitejs.dev/guide/static-deploy#github-pages.
