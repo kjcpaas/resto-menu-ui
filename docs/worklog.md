@@ -12,6 +12,8 @@ I will do a bit of reading first before I start writing any code.
 
 ## Introduction to Vite
 
+ref: https://vitejs.dev/guide/
+
 Vite looks like a very good tool for starting a JS project. Previously, I have been using https://create-react-app.dev/ as a template to start new React project.
 
 With Vite, I was able to create a React + Typescript project with this single command.
@@ -23,3 +25,9 @@ yarn create vite resto-menu-ui --template react-ts
 After doing `yarn install` and `yarn dev`, I have a running frontend project already.
 
 I'm really happy with this tool as I used to setup the servers and a basic view before I could get to this point from 1-2 hours work to **5 minutes**.
+
+## Installing Apollo
+
+The project specs require the use of Apollo to interact with the GraphQL API we used before.
+
+I followed the tutorial in https://www.apollographql.com/docs/react/get-started in setting up Apollo client.
