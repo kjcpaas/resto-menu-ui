@@ -44,8 +44,14 @@ Learning from the mistake from the previous exercise, I will use ChatGPT to help
 
 ## Deployment
 
-*At this point, I am mentally exhausted as I am pre-occupied by other deliverables this weekend. I decided to pause the development for now and continue another day.*
+_At this point, I am mentally exhausted as I am pre-occupied by other deliverables this weekend. I decided to pause the development for now and continue another day._
 
 I finished a very rough and dirty rendering of elements from the API. The code needs massive refactoring to conform to Typescript conventions and frontend styling.
 
 Almost halway into the time, I decided to setup the deployment first as it looks straightforward to do. I will use the guide in https://vitejs.dev/guide/static-deploy#github-pages.
+
+## Adding routing
+
+I will first add routing so that the right components render based on URL, and users can visit menu element from url.
+
+We will use [react-router-dom](https://v5.reactrouter.com/web/guides/quick-start) for this.

@@ -1,35 +1,22 @@
-import { useState } from "react";
 import "./App.css";
-import { useQuery } from "@apollo/client";
-import MenuComponent from "./MenuComponent";
-import { getMenuList } from "./queries";
+
+import HomePage from "./pages/HomePage";
+import MenuPage from "./pages/MenuPage";
+import NotFoundPage from "./pages/NotFound";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  const { loading, error, data } = useQuery(getMenuList);
-  const [selectedMenuId, setSelectedMenuId] = useState(null);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
   return (
-    <>
-      <div>
-        Choose a menu:
-        <ul>
-          {data.menus.map(({ label, identifier }) => {
-            return (
-              <li
-                key={identifier}
-                onClick={() => setSelectedMenuId(identifier)}
-              >
-                {label}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-
-      {selectedMenuId && <MenuComponent menuId={selectedMenuId} />}
-    </>
+    <Router basename="resto-menu-ui">
+      <Routes>
+        <Route path="/" Component={HomePage} />
+        <Route path="menus/:menuId/sections/:sectionId" Component={MenuPage} />
+        <Route path="menus/:menuId" Component={MenuPage} />
+        {/* Render not found page if route is invalid */}
+        <Route path="*" Component={NotFoundPage} />
+      </Routes>
+    </Router>
   );
 }
 
