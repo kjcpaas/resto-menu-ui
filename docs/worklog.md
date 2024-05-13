@@ -55,3 +55,9 @@ Almost halway into the time, I decided to setup the deployment first as it looks
 I will first add routing so that the right components render based on URL, and users can visit menu element from url.
 
 We will use [react-router-dom](https://v5.reactrouter.com/web/guides/quick-start) for this.
+
+## Adding styling
+
+I will use https://react-bootstrap.netlify.app/ for the framework as we have the JS for the page components already. I usually prefer using https://bulma.io/ for CSS as it is more lightweight and we can implement the JS on our own anyway.
+
+However, as we have limited time for this exercise, I will use Bootstrap as is has components we need that are ready to use.
