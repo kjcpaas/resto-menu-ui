@@ -1,17 +1,10 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  gql,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import App from "./App.tsx";
 import "./index.css";
 
 const client = new ApolloClient({
-  // TODO: make it dynamic by environment
-  uri: "https://resto-menu-api-3c61fad65343.herokuapp.com/graphql",
+  uri: import.meta.env.VITE_API_URL,
   cache: new InMemoryCache(),
 });
 
