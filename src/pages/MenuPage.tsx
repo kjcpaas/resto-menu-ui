@@ -1,22 +1,29 @@
 import { useQuery } from "@apollo/client";
-import { getMenu } from "../queries";
-import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
+import { getMenu } from "../queries";
+import LoadingPage from "./Loading";
 import NotFoundPage from "./NotFound";
 import SectionComponent from "../SectionComponent";
+import Sidebar from "../components/menu/Sidebar";
+import ItemModal from "../components/menu/ItemModal";
 
 const MenuPage = () => {
   const { menuId, sectionId } = useParams();
   const { loading, error, data } = useQuery(getMenu(menuId));
+  const [activeItem, setActiveItem] = useState();
 
   const sectionOrder = parseInt(sectionId || "", 10) || 0;
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingPage />;
   if (error) return <p>Error : {error.message}</p>;
   if (
     data.menu == null ||
     sectionOrder < 0 ||
-    // Only do not found if sectionId is given
+    // Only render not found if sectionId is given
     (sectionId && data.menu.menuSections.length <= sectionOrder)
   ) {
     return <NotFoundPage />;
@@ -26,28 +33,30 @@ const MenuPage = () => {
   const activeSection = menuSections[sectionOrder].section;
 
   return (
-    <div>
-      <h1>{menuLabel}</h1>
-      <div>
-        <div>
-          <ul>
-            {menuSections.map(
-              ({ displayOrder, section }: { displayOrder: number }) => {
-                return (
-                  <li key={`${menuId}-${displayOrder}`}>
-                    <Link to={`/menus/${menuId}/sections/${displayOrder}`}>
-                      {section.label}
-                    </Link>
-                  </li>
-                );
-              }
-            )}
-          </ul>
-        </div>
-
-        <SectionComponent section={activeSection} />
-      </div>
-    </div>
+    <>
+      <Row className="menu-name my-1">
+        <h2 className="text-center">{menuLabel}</h2>
+      </Row>
+      <Row>
+        <Col xs={3}>
+          <Sidebar menu={data.menu} activeItem={sectionOrder} />
+        </Col>
+        <Col xs={9}>
+          <SectionComponent
+            section={activeSection}
+            setActiveItem={setActiveItem}
+          />
+        </Col>
+      </Row>
+      {activeItem && (
+        <ItemModal
+          item={activeItem}
+          onClose={() => {
+            setActiveItem(undefined);
+          }}
+        />
+      )}
+    </>
   );
 };
 
