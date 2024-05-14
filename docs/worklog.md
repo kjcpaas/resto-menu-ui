@@ -61,3 +61,7 @@ We will use [react-router-dom](https://v5.reactrouter.com/web/guides/quick-start
 I will use https://react-bootstrap.netlify.app/ for the framework as we have the JS for the page components already. I usually prefer using https://bulma.io/ for CSS as it is more lightweight and we can implement the JS on our own anyway.
 
 However, as we have limited time for this exercise, I will use Bootstrap as is has components we need that are ready to use.
+
+## End of the road
+
+I ran out of time without finishing with the quality I wanted. The CSS styles were barebones to implement the layout but not aesthetically appealing. I also was not able to write some test and define the typescript types.
